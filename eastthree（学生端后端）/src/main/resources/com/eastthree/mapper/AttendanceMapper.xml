@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eastthree.mapper.AttendanceMapper" >
+    <insert id="addAttendance">
+        insert into attendance_result (courseId,studentId,time,status)
+        values (#{courseId},#{studentId},#{time},#{status})
+    </insert>
+    <select id="selectByDoubleId" resultType="com.eastthree.pojo.Attendance">
+        select id, studentId, courseId, time, status from attendance_result
+        where studentId=#{studentId} and courseId=#{courseId}
+    </select>
+
+    <select id="selectByStatusAndCourseId" resultType="com.eastthree.pojo.Attendance">
+        select * from attendance_result where status = #{status} and courseId=#{courseId};
+    </select>
+    <update id="modifyAttendance">
+        UPDATE attendance_result SET time =#{time},status =#{status} WHERE studentId=#{studentId} and courseId=#{courseId}
+    </update>
+    <update id="updateStatus">
+        UPDATE  attendance_result SET status=#{status} WHERE studentId=#{studentId} and courseId=#{courseId};
+    </update>
+    <select id="selectStudentIdByCourseId" resultType="integer">
+        select studentId from attendance_result where courseId=#{courseId};
+    </select>
+    <select id="countStudentAttendance" resultType="integer">
+        select count(*) from attendance_result where studentId=#{studentId} and status=#{status}
+    </select>
+    <select id="getByStudentId" resultType="com.eastthree.pojo.LeaveApplication">
+
+    </select>
+    <select id="getByStudentIdAndBeginTimeAndEndTime" resultType="com.eastthree.pojo.Attendance">
+        select *
+        from course where studentId=#{studentId} and beginTime=#{beginTime} and endTime=#{endTime};
+    </select>
+    <select id="getWhoNoCheck" resultType="java.lang.Integer">
+        select studentId from attendance_result
+        where courseId=#{courseId} and status='未签到';
+    </select>
+
+</mapper>

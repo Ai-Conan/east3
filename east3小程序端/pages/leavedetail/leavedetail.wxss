@@ -1,0 +1,86 @@
+.container {
+  background-color: #d3e5f6;
+  padding: 60rpx;
+  padding-bottom: 250rpx;
+  border-radius: 10px;
+}
+
+.header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000;
+}
+
+.detail {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.title {
+  color: #666;
+  flex: 0 0 80px; /* 设置固定宽度，让"请假原因："一行内显示 */
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.content {
+  color: #000;
+  text-align: left;
+  flex: 1;/*以充分利用剩余空间。*/
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* .actions 样式定义了底部按钮区域的布局： */
+.actions {
+  display: flex;
+  /* justify-content: space-between;使子元素沿主轴两端对齐，实现按钮之间的空间均匀分布。 */
+  align-items: center;/* 使子元素在交叉轴上居中对齐，实现按钮与文本框的垂直居中对齐。 */
+  margin-top: 30rpx;
+  padding: 20rpx;/* 将内边距设置为0 */
+  padding-left: 70rpx; /* 添加左边距 */
+  padding-right: 70rpx; 
+
+}
+
+/* .button 样式定义了按钮的样式： */
+.button {
+  /* transform: scale(0.6); */
+  margin: 0 10rpx; /* 设置左右边距为5px，实现按钮之间的间距。 */
+  color: #333;
+  border: 1px solid #A2A2A2;
+  border-radius: 60px;
+  padding: 8px 0px; /* 设置按钮的上下内边距为8px，左右内边距为0，实现按钮的高度。 */
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.approve {
+  color: #ADEAD0;
+  padding-left: 60rpx;
+}
+
+.deny {
+  color: #FF838E;
+}

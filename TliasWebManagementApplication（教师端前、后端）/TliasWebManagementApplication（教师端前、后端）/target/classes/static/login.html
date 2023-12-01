@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link rel="stylesheet" type="text/css" href="login.css"></link>
+</head>
+<body>
+
+    <div class="container">
+        <div class="leftcontainer">
+            <img src="https://files.superbed.cn/store/superbed/45/59/6566da36c458853aefc74559.png"  alt="启动!"/>
+        </div>
+
+        <div class="loginbox">
+            <ul class="teacherbox">
+                <li class="teacher" id="teacher">
+                    教师
+                </li>
+                <li class="counselor" id="counselor">
+                    辅导员
+                </li>
+            </ul>
+
+
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username" class="username" autocomplete="username">账号</label>
+                <input type="text" id="username" name="username" required autocomplete="current-password">
+            </div>
+            <div class="form-group">
+                <label for="password" class="password">密码</label>
+                <input type="password" id="password" name="password" data="passwordtype" required>
+            </div>
+            <button type="submit" id="loginbtn">登录</button>
+            <a href="#" class="link">忘记密码?</a>
+        </form>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+          event.preventDefault(); // 阻止表单的默认提交行为
+
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          sessionStorage.setItem("no", username);//把usename保存到会话里
+
+          var data = JSON.stringify({
+            "no": username,
+            "password": password
+          });
+
+          var xhr = new XMLHttpRequest();
+          xhr.withCredentials = true;
+
+            xhr.open("POST", "http://47.120.48.211:8080/login");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(data);
+
+          xhr.addEventListener("readystatechange", function() {
+            if (this.readyState === 4) {
+                console.log(xhr.getAllResponseHeaders());
+              // 解析登录接口返回的响应信息
+              var response = JSON.parse(this.responseText);
+
+              if (response.code) {
+                // 登录成功，跳转到首页
+                  var username = document.getElementById("username").value;
+                 // window.location.href = "http://47.120.48.211:8080/login/" + username;
+
+                 window.location.href = "homepage.html";
+              } else {
+                // 登录失败，显示错误信息
+                alert("登录失败：" + response.message);
+              }
+            }
+          });
+
+         
+        });
+      });
+    </script>
+    <script src="login.js"></script>
+</body>
+</html>

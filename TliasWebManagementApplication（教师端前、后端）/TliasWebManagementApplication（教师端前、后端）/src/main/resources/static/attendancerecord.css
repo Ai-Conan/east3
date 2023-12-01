@@ -1,0 +1,379 @@
+.container {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://img.js.design/assets/smartFill/img285164da731af0.jpg');
+    background-color: rgba(204, 204, 204, 1);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: -1;
+    /*设置该标签等级，让其始终位于最底层*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.leftcontainer {
+    position: absolute;
+    width: 17.27%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(64, 163, 132, 1) 0%, rgba(7, 61, 38, 1) 100%);
+}
+
+.touxiang {
+    position: absolute;
+    top: 5.09%;
+    left: 5%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /*圆形头像*/
+    overflow: hidden;
+    border: 5px solid #ffffff;
+}
+
+.touxiang img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h2 {
+    position: absolute;
+    top: 6.18%;
+    left: 35.08%;
+    width: 65.4%;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    vertical-align: top;
+}
+
+.nav {
+    /*方框部分*/
+    position: absolute;
+    list-style-type: none;
+    /*不要圆点*/
+    margin: 0;
+    padding: 0;
+    top: 25%;
+    left: 5.34%;
+    width: 94.66%;
+    height: 28.57%;
+    background-color: rgba(222, 236, 221, 1);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.nav li {
+    height: 25%;
+}
+
+li a {
+    /*长条部分，首页、点名巴拉巴拉*/
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 9px 0px;
+    /*文本*/
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32.93px;
+    color: rgba(128, 128, 128, 1);
+
+}
+
+.attendancerecorde {
+    /*首页默认样式*/
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 1);
+    border-radius: 15px 0px 0px 15px;
+}
+
+li a:hover,
+li a:active {
+    /*悬停样式*/
+    border-color: rgba(255, 255, 255, 1);
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 1);
+    border-radius: 15px 0px 0px 15px;
+}
+
+div .setup {
+    /*左下角设置，页面还没写，先跳到登录页面*/
+    position: absolute;
+    top: 88%;
+    left: 10%;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: #ffffff;
+
+}
+
+div .blank {
+    /*设置图标好看用的*/
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 12.5px;
+    left: 12.5px;
+
+}
+
+.setup img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: center;
+    opacity: 0.75;
+}
+
+.navimg {
+    /*导航栏图标*/
+    position: absolute;
+    left: 12%;
+    top: 80%;
+    width: 32.74px;
+    height: 30.99px;
+    opacity: 1;
+}
+
+.rightcontainer {
+    position: absolute;
+    left: 17.27%;
+    width: 82.73%;
+    height: 100%;
+    opacity: 1;
+    background: rgba(238, 252, 222, 1);
+    overflow-x: hidden;
+}
+
+/*设置滚动条*/
+.hideOverflowY {
+    overflow-y: hidden;
+}
+
+.OverflowY {
+    overflow-y: auto;
+}
+
+/*导入自定义字体*/
+@font-face {
+    font-family: 'HuXiaoBo';
+    src: url('./HuXiaoBoNanShenTi-2.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ALiBaBaPuHui';
+    src: url('./Alibaba-PuHuiTi-Medium.ttf') format('truetype');
+}
+
+.iteachcourse {
+    /*我教的课文本框*/
+    position: absolute;
+    left: 3vw;
+    top: 1.2vw;
+    opacity: 1;
+    /** 文本1 */
+    font-size: 1.7vw;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 2vw;
+    background-image: linear-gradient(180deg, rgba(128, 208, 199, 1) 0%, rgba(19, 84, 122, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'HuXiaoBo', sans-serif;
+    text-align: left;
+    vertical-align: top;
+}
+
+.blankspace {
+    /*标题渐变块*/
+    position: absolute;
+    left: 3vw;
+    top: 4.2vw;
+    width: 100vw;
+    height: 1vw;
+    opacity: 1;
+    border-radius: 15px;
+    background: linear-gradient(90deg, rgba(171, 236, 214, 1) 0%, rgba(251, 237, 150, 1) 100%);
+}
+
+div .searchtext {
+    /*搜索文本框*/
+    position: absolute;
+    left: 3vw;
+    top: 6.3vw;
+    width: 11vw;
+    height: 1.6vw;
+    line-height: 1vw;
+    opacity: 1;
+    border-radius: 0.6vw;
+    padding-left: 2vw;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(128, 128, 128, 1);
+}
+
+div .searchimg {
+    /*搜索框图像*/
+    position: absolute;
+    left: 3.5vw;
+    top: 6.6vw;
+    width: 1.2vw;
+    height: 1.2vw;
+    opacity: 1;
+}
+
+/*课程容器*/
+.midall {
+    position: absolute;
+    top: 11vw;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.midcontainer {
+    position: relative;
+    display: inline-block;
+    width: 23vw;
+    height: 13vw;
+    margin-left: 3.5vw;
+    margin-bottom: 3.5vw;
+    border-radius: 1vw 1vw 1vw 1vw;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.blue {
+    background: linear-gradient(180deg, rgba(0, 205, 172, 1) 0%, rgba(141, 218, 213, 1) 100%);
+}
+
+.green {
+    background: linear-gradient(180deg, rgba(155, 225, 93, 1) 0%, rgba(0, 227, 174, 1) 100%);
+}
+
+/*课程容器里的图案*/
+div .circle {
+    position: absolute;
+    left: 15vw;
+    top: 0;
+    width: 57%;
+    height: 100%;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+div .square {
+    position: absolute;
+    left: 17vw;
+    top: 4vw;
+    width: 90%;
+    height: 90%;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+}
+
+/*课程内容*/
+div .containertitle {
+    position: absolute;
+    left: 2.2vw;
+    top: -0.1vw;
+    width: 16vw;
+    height: 9vw;
+    opacity: 1;
+    /** 文本1 */
+    font-size: 1.6vw;
+    font-weight: 550;
+    font-family: 'ALiBaBaPuHui', sans-serif;
+    letter-spacing: 0px;
+    line-height: 2vw;
+    color: rgba(255, 255, 255, 1);
+    text-align: left;
+    vertical-align: top;
+
+}
+
+/*课程人数*/
+div .containermember {
+    position: absolute;
+    left: 3.6vw;
+    top: 9.8vw;
+    width: 4vw;
+    height: 2vw;
+    opacity: 1;
+    /** 文本1 */
+    font-size: 0.9vw;
+    font-weight: 550;
+    letter-spacing: 0;
+    line-height: 2vw;
+    color: rgba(255, 255, 255, 1);
+    text-align: left;
+    vertical-align: top;
+
+}
+
+div .containermemberimg {
+    position: absolute;
+    left: 2.2vw;
+    top: 11.1vw;
+    width: 1.1vw;
+    height: 1.1vw;
+    opacity: 1;
+}
+
+/*更多（三个点）*/
+div .more {
+    position: absolute;
+    left: 18vw;
+    top: 0.4vw;
+    width: 4vw;
+    height: 4vw;
+    opacity: 1;
+}
+
+div .actstop:hover,
+div .actstop:active {
+    /*悬停样式*/
+    border-color: rgba(255, 255, 255, 1);
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 1);
+    border-radius: 1vw 1vw 1vw 1vw;
+}
+
+/**/
+.custom-alert {
+    display: none;
+    position: absolute;
+    top: 20vw;
+    left: 40vw;
+    transform: translate(-50%, -50%);
+    background-color: #f4f4f4;
+    padding: 4vw;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.custom-alert p {
+    margin: 0;
+}
+
+.custom-alert.show {
+    display: block;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,84 @@
+/* pages/appealdetail/appealdetail.wxss */
+.container {
+  background-color: #d3e5f6;
+  padding-top: 60rpx;
+  padding-bottom: 250rpx;
+  border-radius: 10px;
+}
+
+.header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000;
+}
+
+.detail {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.title {
+  color: #666;
+  flex: 0 0 80px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.content {
+  color: #000;
+  text-align: left;
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  padding: 20rpx;
+  padding-left: 70rpx;
+  padding-right: 70rpx;
+}
+
+.button_approve {
+  width: 100px;
+  color: #333;
+  border: 1px solid #A2A2A2;
+  border-radius: 60px;
+  padding: 8px 0px;
+  text-align: center;
+  background-color: #fff;
+  color: #ADEAD0;
+}
+
+.button_deny {
+  width: 100px;
+  color: #333;
+  border: 1px solid #A2A2A2;
+  border-radius: 60px;
+  padding: 8px 0px;
+  text-align: center;
+  background-color: #fff;
+  color: #FF838E;
+}

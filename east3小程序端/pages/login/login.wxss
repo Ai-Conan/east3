@@ -1,0 +1,69 @@
+.container {
+  background-image: url("https://pic.imgdb.cn/item/656877dec458853aef718d5c.png"); 
+  background-size: cover; /* 调整背景图片的大小以覆盖整个容器 */
+  background-position: center; 
+  height: 100vh; /* 设置容器的高度为视窗的高度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* 使内容在垂直方向上平均分布 */
+  padding: 10% 0; /* 添加上下内边距使内容不靠近屏幕边缘 */
+  z-index: 10000;
+}
+
+.logo {
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 5vh;
+  margin-bottom: -20vh; /* 将与下边另一容器的距离设为屏幕高度的1/6 */
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid #5C6873;
+  width: 100%;
+  margin-bottom: 60rpx;  /* 根据实际情况调整 */
+}
+
+.label {
+  width: 40%; /* 根据实际情况调整 */
+}
+
+input {
+  width: 60%; /* 根据实际情况调整 */
+}
+
+.btn-login {
+  display: block;
+  width: 50%;
+  height: 35px;
+  margin: 20px auto 0; /* 使按钮在其容器中居中 */
+  background-color: #A4D6F1;
+  color: #F4FFFF;
+  border-radius: 50rpx;
+  padding: 10rpx 0;
+  text-align: center;
+  font-size: 34rpx;
+  /* align-self: center; 使登录按钮居中显示 */
+}
+
+.date-format-alert {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 在垂直方向上居中对齐 */
+  flex-direction: column; /* 使内容在垂直方向上排列,使其中的每个<text>分行显示 */
+  width: 100%; /* 宽度等于屏幕宽度 */
+  padding: 10px; /* 内部填充 */
+  background-color: #FFFFFF; /* 背景颜色为白色 */
+  color: #000000; /* 文字颜色为黑色 */
+  font-size: 16px; /* 设置字体大小 */
+  border-radius: 0; /* 为方框添加圆角 */
+  border-top: 1rpx solid;
+  margin-bottom: -80rpx; 
+  /* 方框与上面的内容之间的间距 */
+}

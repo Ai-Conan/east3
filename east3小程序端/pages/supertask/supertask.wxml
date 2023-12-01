@@ -1,0 +1,20 @@
+<view class="container">
+  <scroll-view scroll-y="true" class="list">
+    <view class="item" wx:for="{{taskList}}" wx:key="index" bindtap="gotoDetail" data-id="{{item.courseId}}">
+      <view class="left">
+        <view class="row">
+          <text class="title">课程名称　</text>
+          <text class="content">{{item.courseName}}</text>
+        </view>
+        <view class="row">
+          <text class="title">开始时间　</text>
+          <text class="content">{{item.beginTime}}</text>
+        </view>
+      </view>
+      <view class="right">
+        <text class="check-in">预点名</text>
+        <image class="arrow-icon" src="https://pic.imgdb.cn/item/65687afac458853aef7d00ae.png"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>

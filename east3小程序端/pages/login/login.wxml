@@ -1,0 +1,18 @@
+<view class="container">
+  <image class="logo" src="https://pic.imgdb.cn/item/65689d0bc458853aef1d7db9.jpg"></image>
+  <form bindsubmit="login">
+    <view class="login-field">
+      <view class="label">用户名：</view>
+      <input name="no" type="text" placeholder="请输入学号" bindinput="handleInputNo" />
+    </view>
+    <view class="login-field">
+      <view class="label">密　码：</view>
+      <input name="password" type="password" placeholder="请输入密码" bindinput="handleInputPassword" />
+    </view>
+    <view class="btn-login" bindtap="handleLogin">登录</view>
+  </form>
+  <view class="date-format-alert">
+    <text>密码：与福大教务处密码相同</text>
+    <text>修改密码：在福大教务处进行修改</text>
+  </view>
+</view>

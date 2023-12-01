@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="card" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+    <view class="swipe-hint-left"> ＜左滑缺勤　</view>
+    <view class="swipe-hint-right">　右滑签到＞ </view>
+    <view class="image-container">
+      <image class="center-image" src="{{imageUrl}}"></image>
+    </view>
+    <view class="status-text">{{status}}</view>
+    <view class="student-info">
+      <view class="info-row">
+        <text class="info-label">学号：</text>
+        <text class="info-value">{{studentNo}}</text>
+      </view>
+      <!-- <view class="info-row">
+        <text class="info-label">姓名：</text>
+        <text class="info-value">{{studentName}}</text>
+      </view> -->
+    </view>
+  </view>
+  <!-- 新增两个卡片 -->
+   <!-- 新的卡片 -->
+   <view class="next-card-1">
+    <!-- ...卡片内容... -->
+  </view>
+  <view class="next-card-2">
+    <!-- ...卡片内容... -->
+  </view>
+</view>

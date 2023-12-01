@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="header">请假审核</view>
+  <view class="detail">
+    <view class="item">
+      <text class="title">学号：　　</text>
+      <text class="content">{{leaveDetail.studentNo}}</text>
+    </view>
+    <view class="item">
+      <text class="title">姓名：　　</text>
+      <text class="content">{{leaveDetail.studentName}}</text>
+    </view>
+    <view class="item">
+      <text class="title">课程：　　</text>
+      <text class="content">{{leaveDetail.courseName}}</text>
+    </view>
+    <view class="item">
+      <text class="title">时间：　　</text>
+      <text class="content">{{leaveDetail.beginTime}}  {{leaveDetail.endTime}}</text>
+    </view>
+    <view class="item">
+      <text class="title">请假原因：　　</text>
+      <text class="content">{{leaveDetail.reason}}</text>
+    </view>
+  </view>
+  <view class="actions">
+    <button bindtap="approveLeave" class="button approve">通过</button>
+    <button bindtap="denyLeave" class="button deny">不通过</button>
+  </view>
+</view>

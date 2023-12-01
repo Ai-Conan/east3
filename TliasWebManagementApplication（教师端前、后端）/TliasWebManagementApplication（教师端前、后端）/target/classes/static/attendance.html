@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点名</title>
+    <link rel="stylesheet" type="text/css" href="attendance.css"></link>
+</head>
+<body>
+<div class="container">
+    <div class="leftcontainer">
+        <h2>学生考勤</h2>
+        <div class="touxiang">
+            <img src="https://pic.imgdb.cn/item/6566da2fc458853aefc72ae1.jpg" />
+        </div>
+        <ul class="nav">
+            <li><a href="./homepage.html">首页</a></li>
+            <li><a href="#" class="attendance">点名</a></li>
+            <li><a href="./todayclass.html">今日课堂</a></li>
+            <li><a href="./attendancerecorde.html">考勤记录</a></li>
+        </ul>
+        <div class="setup"><div class="setup blank" ><a href="./login.html"><img src="https://pic.imgdb.cn/item/6566da36c458853aefc74573.png"></a></div></div>
+    </div>
+    <div class="rightcontainer">
+        <div class="line"></div>
+        <div class="courseNow">
+            当前课程正在点名
+            <img src="https://pic.imgdb.cn/item/6566da2fc458853aefc72a28.png" alt="课程图片">
+        </div>
+
+        <div class="center"><!--中间白色的部分-->
+            <div class="congrate">
+                <p id="congrateText"></p>
+            </div>
+            <div class="circle" onclick="startRandomAttendance()">
+                <p onclick="startRandomAttendance()">随机点名</p>
+                <img src="https://pic.imgdb.cn/item/6566da08c458853aefc698d2.png">
+            </div>
+            <p class="tips">
+                <img src="https://pic.imgdb.cn/item/6566da2fc458853aefc72a8a.png">
+                ：缺勤率更高的同学更容易被点到哦！
+            </p>
+            <img  class="eastonline" src="https://pic.imgdb.cn/item/6566da2fc458853aefc72a71.png"/>
+
+        </div>
+    </div>
+</div>
+<script>
+    function startRandomAttendance() {
+        const names = ["黄球球", "李水水", "刘歪歪", "饶鼠鼠", "甜蛙蛙","何彧彧","江筝筝","张瑶瑶","高众众","吗喽喽"]; // 假设有一组名字数据
+
+        const congrateText = document.getElementById("congrateText");
+        let currentIndex = 0;
+
+        const intervalId = setInterval(() => {
+            congrateText.textContent = names[currentIndex++];
+            if (currentIndex === names.length) {
+                currentIndex = 0;
+            }
+        }, 100);
+
+        setTimeout(() => {
+            clearInterval(intervalId);
+            fetchAttendance(); // 在此处调用真正的点名请求
+        }, 3000); // 设置播放时间为3秒
+    }
+
+    function fetchAttendance() {
+        const requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };//账号要改！
+        var no = sessionStorage.getItem('no')
+        fetch(`http://47.120.48.211:8080/${no}/dianming`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                const congrateText = document.getElementById("congrateText");
+                console.log(result);
+                congrateText.textContent = result.data;
+            })
+            .catch(error => console.log('error', error));
+    }
+</script>
+</body>
+</html>

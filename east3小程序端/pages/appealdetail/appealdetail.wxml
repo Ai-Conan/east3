@@ -1,0 +1,31 @@
+<!--pages/appealdetail/appealdetail.wxml-->
+<view class="container">
+  <view class="header">申诉审核</view>
+  <view class="detail">
+    <view class="item">
+      <text class="title">学号：　　</text>
+      <text class="content">{{appealDetail.studentNo}}</text>
+    </view>
+    <view class="item">
+      <text class="title">姓名：　　</text>
+      <text class="content">{{appealDetail.studentName}}</text>
+    </view>
+    <view class="item">
+      <text class="title">课程：　　</text>
+      <text class="content">{{appealDetail.courseName}}</text>
+    </view>
+    <view class="item">
+      <text class="title">时间：　　</text>
+      <text class="content">{{appealDetail.beginTime}}\n{{appealDetail.endTime}}</text>
+    </view>
+    <view class="item">
+      <text class="title">申诉原因：　　</text>
+      <text class="content">{{appealDetail.reason}}</text>
+    </view>
+  </view>
+  <view class="actions">
+    <button bindtap="approveAppeal" class="button_approve">通过</button>
+    <button bindtap="denyAppeal" class="button_deny">不通过</button>
+  </view>
+</view>
+

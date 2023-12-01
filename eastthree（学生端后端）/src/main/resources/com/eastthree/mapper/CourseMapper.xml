@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eastthree.mapper.CourseMapper" >
+    <select id="getByTime" resultType="com.eastthree.pojo.Course">
+        select id,course_name,beginTime,endTime,course_teacher,course_place from course
+        where beginTime=#{beginTime} and endTime=#{endTime} and studentId=#{studentId}
+    </select>
+    <select id="getByTimeNow" resultType="com.eastthree.pojo.resultPojo.ResultCourse">
+        select * from course
+        where studentId=#{studentId} and week=#{week}
+    </select>
+    <select id="getOneByTimeNow" resultType="com.eastthree.pojo.resultPojo.ResultCourse">
+        select id, course_name,week,section,beginTime,endTime,course_place,teacherName from course
+        where  DATE_ADD(beginTime,INTERVAL -5 MINUTE) <![CDATA[ < ]]> #{timeNow}
+        and endTime <![CDATA[ > ]]> #{timeNow}
+    </select>
+    <select id="getById" resultType="com.eastthree.pojo.Course">
+        select * from course where id=#{courseId} ;
+    </select>
+
+    <select id="selectCourseIdByBeginTimeAndTeacherid" resultType="integer">
+        select id from course where course_teacher =#{teacherId} and week=#{week} and weekday=#{weekday} and section=#{section}
+    </select>
+
+</mapper>

@@ -1,0 +1,78 @@
+<!-- pages/supervisor/supervisor.wxml -->
+<view class="container">
+  <!--头像名称-->
+<view class="partOne">
+  
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!-- 这边留个按钮切换身份 -->
+  <view class="switchRole">
+    <view class="role" wx:if="{{!switchRoleStatus}}" bindtap="switchRole">学生</view>
+    <view class="role" wx:if="{{switchRoleStatus}}" bindtap="switchRole">督导</view>
+  </view>
+</view>
+
+
+<!-- 请假申请、考勤申诉等功能按钮 -->
+<view class="partTwo">
+  <view class="item" bindtap="navigateToLeave">
+    <view class="itemname">
+      <image src="https://pic.imgdb.cn/item/65687ac4c458853aef7c3be7.png" />
+      <text>请假申请</text>
+    </view>
+    <image class="button-icon" src="https://pic.imgdb.cn/item/65687afac458853aef7d00ae.png" />
+  </view>
+  <view class="item" bindtap="navigateToAppeal">
+    <view class="itemname">
+      <image src="https://pic.imgdb.cn/item/65687a75c458853aef7aad21.png" />
+      <text>考勤申诉</text>
+    </view>
+    <image class="button-icon" src="https://pic.imgdb.cn/item/65687afac458853aef7d00ae.png" />
+  </view>
+  <view class="item" bindtap="navigateToRule">
+    <view class="itemname">
+      <image src="https://pic.imgdb.cn/item/65687b35c458853aef7de983.png" />
+      <text>考勤规则</text>
+    </view>
+    <image class="button-icon" src="https://pic.imgdb.cn/item/65687afac458853aef7d00ae.png" />
+  </view>
+  <view class="item" bindtap="logout">
+    <view class="itemname">
+      <image src="https://pic.imgdb.cn/item/65687b4dc458853aef7e4ecf.png" />
+      <text>退出登录</text>
+    </view>
+    <image class="button-icon" src="https://pic.imgdb.cn/item/65687afac458853aef7d00ae.png" />
+  </view>
+</view>
+
+
+
+  
+  <view class="nav-bar">
+    <view class="nav-item" bindtap="navigateToTask">
+      <image class="nav-icon" src="/pages/images/course_selected.png"  />
+      <text class="nav-text">任务</text>
+    </view>
+    <view class="nav-item" bindtap="navigateToMine">
+      <image class="nav-icon" src="/pages/images/mine.png" />
+      <text class="nav-text">我的</text>
+    </view>
+  </view>
+</view>
+
+

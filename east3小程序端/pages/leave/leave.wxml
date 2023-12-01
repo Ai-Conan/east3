@@ -1,0 +1,24 @@
+<view class="container">
+  <scroll-view scroll-y="true" class="list">
+    <view class="item" wx:for="{{appeals}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+      <view class="left">
+        <view class="row">
+          <text class="title">请假课程　</text>
+          <text class="content">{{item.leaveCourseName}}</text>
+        </view>
+        <view class="row">
+          <text class="title">开始时间　</text>
+          <text class="content">{{item.appealBeginTime}}</text>
+        </view>
+        <view class="row">
+          <text class="title">结束时间　</text>
+          <text class="content">{{item.appealEndTime}}</text>
+        </view>
+      </view>
+      <view class="right {{item.statusClass}}">
+        <text>{{item.status}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <image class="bottom-button" src="https://pic.imgdb.cn/item/65687a1bc458853aef796644.png" bindtap="navigateToOtherPage"/>
+</view>

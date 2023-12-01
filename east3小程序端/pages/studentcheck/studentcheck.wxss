@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #E7F4FB;
+  height: 100vh;
+  width: 100vw; 
+  padding: 20rpx;
+  /* position: relative; */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 78%;
+  height: 60vh;
+  background-color: #FFFFFF;
+  border-radius: 50rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-right: 3vw;/* 为了底下的两个卡片做准备 */
+}
+
+.swipe-hint-left,
+.swipe-hint-right {
+  font-size: 25rpx;
+  color: #FFFFFF;
+  background-color: #cccccc;
+  padding: 20rpx;
+  border-radius: 50rpx;
+  /* position: relative;
+  margin-top: -30rpx; */
+  align-self: flex-start;
+  position: absolute;
+  top: -1.3cm; /* 调整位置 */
+  
+  
+}
+
+.swipe-hint-left {
+  left: 0;
+}
+
+.swipe-hint-right {
+  right: 0;
+  margin-left: auto;
+  /* 通过将"右滑签到"按钮的align-self属性设置为flex-start，并使用margin-left: auto将其调整到文本框的上方右侧。 */
+}
+
+.image-container {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.center-image {
+  margin-top: 200rpx;
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.status-text {
+  font-size: 28rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.student-info {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  border-bottom-left-radius: 50rpx;
+  border-bottom-right-radius: 50rpx;
+  background-color: #CBE8F6;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+  padding-top: 40rpx;
+  padding-right: 50rpx;
+}
+
+.info-label {
+  font-size: 40rpx;
+  font-weight: bold;
+  width: 200rpx;
+  text-align: right;
+}
+
+.info-value {
+  font-size: 38rpx;
+  margin-left: 10rpx;
+}
+
+/* 新增卡片样式 */
+.next-card-1,
+.next-card-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  height: 60vh;
+  background-color: #FFFFFF;
+  border-radius: 50rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  position: absolute;
+  /* position: relative; */
+
+}
+
+.next-card-1 {
+  top: 280rpx; /* 往下偏移 */
+  right: 9vw; /* 往左偏移 */
+  z-index: 1; /* 设置层次为1，低于原卡片 */
+  background-color:#F9FBFD;
+}
+
+.next-card-2 {
+  top: 320rpx; /* 往下偏移 */
+  right: 4vw; /* 往左偏移 */
+  z-index: 0; /* 设置层次为1，低于原卡片 */
+  background-color:#F5F8FB;
+}
+
+.card {
+  z-index: 2; /* 设置卡片层次为2，位于新的卡片之上 */
+  /* margin-right: 5vw; */
+}

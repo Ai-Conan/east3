@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日课堂</title>
+    <link rel="stylesheet" type="text/css" href="todayclass.css"></link>
+    <script src="todayclass.js"></script>
+  </head>
+<body>
+    <div class="container">
+        <div class="leftcontainer">
+            <h2>学生考勤</h2>
+            <div class="touxiang">
+                <img src="https://pic.imgdb.cn/item/6566da2fc458853aefc72ae1.jpg"/>
+            </div>
+            <ul class="nav">
+                <li><a href="homepage.html">首页</a></li>
+                <li><a href="attendance.html">点名</a></li>
+                <li><a href="#" class="todayclass">今日课堂</a></li>
+                <li><a href="attendancerecorde.html">考勤记录</a></li>
+            </ul>
+            <div class="setup"><div class="setup blank" ><a href="login.html"><img src="https://pic.imgdb.cn/item/6566da36c458853aefc74573.png"></a></div></div>
+        </div>
+        <div class="rightcontainer"> 
+            <div class="line"></div>
+            <div class="mycourse">
+            我教的课程
+            </div>
+            
+        
+            <select name="semester" id="select_semester">
+              <option value="2301" selected="selected">202301</option>
+            </select> 
+
+            <select name="weeks" id="select_week">
+              <option value="1">第一周</option>
+              <option value="2">第二周</option>
+              <option value="3">第三周</option>
+              <option value="4">第四周</option>
+              <option value="5">第五周</option>
+              <option value="6">第六周</option>
+              <option value="7">第七周</option>
+              <option value="8">第八周</option>
+              <option value="9">第九周</option>
+              <option value="10">第十周</option>
+              <option value="11">第十一周</option>
+              <option value="12">第十二周</option>
+              <option value="13">第十三周</option>
+              <option value="14">第十四周</option>
+              <option value="15">第十五周</option>
+              <option value="16">第十六周</option>
+              <option value="17">第十七周</option>
+              <option value="18">第十八周</option>
+              <option value="19">第十九周</option>
+              <option value="20">第二十周</option>
+              <option value="21">第二十一周</option>
+            </select>
+            
+
+
+            <div class="center"><!--中间白色的部分-->
+                
+                <div class="schedule">
+                    <div class="time-column time-morning">
+                      <p>08:20</p>
+                      <p>10:20</p>
+                      <p>12:00</p>
+                    </div>
+                    <div class="time-column time-afternoon">
+                      <p>14:00</p>
+                      <p>15:40</p>
+                      <p>17:30</p>
+                    </div> 
+                    <div class="time-column time-evening">
+                      <p>19:00</p>
+                      <p>21:30</p>
+                    </div>
+                  
+                 <table id="timetable">
+                    <tr class="week" > 
+                      <th>星期一</th>
+                      <th>星期二</th>
+                      <th>星期三</th>
+                      <th>星期四</th>
+                      <th>星期五</th>
+                      <th>星期六</th>
+                      <th>星期日</th>
+                    </tr>
+                    <tr class="zaoba">  
+                      <td id="Mon-12"> </td>
+                      <td id="Tues-12"></td>
+                      <td id="Wed-12"></td>
+                      <td id="Thur-12"></td>
+                      <td id="Fri-12"></td>
+                      <td id="Sat-12"></td>
+                      <td id="Sun-12"></td>
+                    </tr>
+                    <tr class="zaoshi">
+                      <td id="Mon-34"></td>
+                      <td id="Tues-34"></td>
+                      <td id="Wed-34"></td>
+                      <td id="Thur-34"></td>
+                      <td id="Fri-34"></td>
+                      <td id="Sat-34"></td>
+                      <td id="Sun-34"></td>
+                    </tr>
+                    <tr class="white1">
+                      <td colspan="7"></td>
+                    </tr>
+                    <tr class="wuer">
+                        <td id="Mon-56"></td>
+                        <td id="Tues-56"></td>
+                        <td id="Wed-56"></td>
+                        <td id="Thur-56"></td>
+                        <td id="Fri-56"></td>
+                        <td id="Sat-56"></td>
+                        <td id="Sun-56"></td>
+                    </tr>
+                      <tr class="xiake">
+                        <td id="Mon-78"></td>
+                        <td id="Tues-78"></td>
+                        <td id="Wed-78"></td>
+                        <td id="Thur-78"></td>
+                        <td id="Fri-78"></td>
+                        <td id="Sat-78"></td>
+                        <td id="Sun-78"></td>
+                      </tr>
+                      <tr class="white2">
+                        <td colspan="7"></td>
+                        
+                      </tr>
+                      <tr class="wanqi">
+                        <td id="Mon-9"></td>
+                        <td id="Tues-9"></td>
+                        <td id="Wed-9"></td>
+                        <td id="Thur-9"></td>
+                        <td id="Fri-9"></td>
+                        <td id="Sat-9"></td>
+                        <td id="Sun-9"></td>
+                      </tr>
+                  
+                    <!-- 添加更多行和单元格 -->
+                  </table>
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

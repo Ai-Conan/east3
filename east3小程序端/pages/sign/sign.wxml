@@ -1,0 +1,51 @@
+<view class="index">
+  <!-- 用户信息 -->
+  <view class="head ">
+    <view class="head_box flex-row" style="justify-content:left">
+      <view class="user_ava">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view>
+        <view class="student_no_name">{{studentInfo.no}}{{studentInfo.name}}<text>{{tip}}</text></view>
+        <view class="student_grade_college_major_clasS">{{studentInfo.grade}}级{{studentInfo.college}}{{studentInfo.major}}{{studentInfo.clasS}}班</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="contentBox">
+    <!-- 打卡记录 -->
+    <view class="signRecord">
+      <view class="signInfo">
+        <text class="courseName">{{courseName ? '即将要上的课程为: ' + courseName : '暂无课程'}}</text>
+        <view class="sign_address">
+          <view class="">{{courseName?'签到地点为: ' +  coursePlace : '暂无签到地址'}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="dateInfo ">
+      <text>{{nowDate}} {{nowDay}}</text>
+    </view>
+    <!-- 打卡按钮 -->
+    <view class="c_clock flex-column">
+      <!-- 翻转前 -->
+      <view class="clock_time flex-column j_c {{status==1?'c1':''}} {{is_out ? 'outArea' : ''}}" catchtap="signTap"><!-- catchtap="signTap" 是一个点击事件的绑定，表示在点击时执行 signTap 函数 -->
+        <text>{{courseendTime?"　签到截止时间为：":''}}</text>
+        <text>{{courseendTime?courseendTime:''}}</text>
+        <text>{{courseendTime?"当前时间为": "　暂无签到\n当前的时间为:"}}</text>
+        <text>{{now_time}}</text>
+        <!-- 目前没有翻转效果和去掉了c1和status有关 -->
+      </view>
+      <!-- 翻转后 -->
+      <view class="clock_time_over flex-column j_c  {{status==1?'c2':''}}" catchtap="clockInStart">
+        <text>已签到</text>
+        <text>{{now_time_stop}}</text>
+      </view>
+    </view>
+    <!-- 打卡地址 -->
+    <view class="clock_address ">
+      <image src="/pages/images/add0.png" class="add_icon" />
+      <text>{{current_address}}</text>
+    </view>
+    <view class="refresh" catchtap="refreshAdd">刷新位置</view>
+  </view>
+</view>

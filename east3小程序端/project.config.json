@@ -1,0 +1,30 @@
+{
+  "appid": "wx221bf2b1d18ad23e",
+  "compileType": "miniprogram",
+  "libVersion": "2.32.3",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "condition": false
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "projectname": "uu%E8%80%83%E5%8B%A4%EF%BC%88%E6%8E%A5%E5%8F%A3%E4%BD%BF%E7%94%A8apifox%EF%BC%89"
+}

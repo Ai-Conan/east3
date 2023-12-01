@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-alibaba/2.0.0/alibaba-puhui-ti/Alibaba-PuHuiTi-Regular.css" />
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-source-han-sans-cn/2.001R/SourceHanSansCN-Regular.css" />
+    <title>考勤记录</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="./jquery.media.js"></script>
+    <script type="text/javascript" src="./jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('a.media').media({width:'1200px', height:'900px'});
+        });
+    </script>
+    <style type="text/css">
+        .container{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(238, 252, 222, 1);
+            background-size: cover;
+            position:absolute;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            z-index: -1; /*设置该标签等级，让其始终位于最底层*/
+            background-repeat: no-repeat;
+            background-attachment: absolute;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .leftcontainer{
+            position: absolute;
+            width: 17.27%;
+            height: 100%;
+            background: linear-gradient(180deg,rgba(64, 163, 132, 1) 0%, rgba(7, 61, 38, 1) 100%);
+        }
+        .touxiang{
+            position: absolute;
+            top:5.09%;
+            left:5%;
+            width:5.2vw;
+            height:5.2vw;
+            border-radius:50%;/*圆形头像*/
+            overflow:hidden;
+            border: 5px solid #ffffff;}
+        .touxiang img{
+            width:100%;
+            height:100%;
+            object-fit: cover;}
+        h2{
+            position: absolute;
+            top:6.18%;
+            left: 35.08%;
+            width: 65.4%;
+            font-size:1.3vw;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            text-align:center;
+            vertical-align:top;
+        }
+        .nav{/*方框部分*/
+            position: absolute;
+            list-style-type: none;/*不要圆点*/
+            margin:0;
+            padding: 0;
+            top:25%;
+            left:5.34%;
+            width:94.66%;
+            height: 28.57%;
+            background-color:  rgba(222, 236, 221, 1);
+            border-radius: 15px 0px 0px 15px;
+        }
+        .navimg{/*导航栏图标*/
+            position: absolute;
+            left: 12%;
+            top: 80%;
+            width: 3.2vx;
+            height: 3vx;
+            opacity: 1;
+        }
+        li a{/*长条部分，首页、点名巴拉巴拉*/
+            display: block;
+            text-decoration: none;
+            text-align:center;
+            padding: 9px 0px;
+            /*文本*/
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 2.1vw;
+            color:rgba(128, 128, 128, 1);
+            font-size: 1.2vw;
+
+        }
+        .attendancerecorde{/*首页默认样式*/
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0.5vw 0.5vw 1vw 0.5vw rgba(0, 0, 0, 0.25);
+            color: rgba(0, 0, 0, 1);
+            border-radius: 1.5vw 0px 0px 1.5vw;
+        }
+        li a:hover, li a:active{/*悬停样式*/
+            border-color: rgba(255, 255, 255, 1);
+            box-shadow: 0.5vw 0.5vw 1vw 0.5vw rgba(0, 0, 0, 0.25);
+            color: rgba(0, 0, 0, 1);
+            border-radius: 1.5vw 0px 0px 1.5vw;
+        }
+        div .setup{/*左下角设置，页面还没写，先跳到登录页面*/
+            position: absolute;
+            top:88%;
+            left:10%;
+            width:3.6vw;
+            height:3.6vw;
+            border-radius:50%;
+            background-color: #ffffff;
+
+        }
+        div .blank{/*设置图标好看用的*/
+            position: absolute;
+            width:1.91vw;
+            height:1.91vw;
+            top: 23%;
+            left:23%;
+
+        }
+        .setup img{
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            position: center;
+            opacity: 0.75;
+        }
+        .nav li{
+            height: 25%;
+        }
+
+
+        div.long-long{
+            position: absolute;
+            left: 19.2%;
+            top: 12.5%;
+            width: 79vw;
+            height: 1vw;
+            opacity: 1;
+            border-radius: 0.5vw;
+            background: linear-gradient(90deg, rgba(171, 236, 214, 1) 0%, rgba(251, 237, 150, 1) 100%);
+        }
+
+        div.long-bar {/*选择班级*/
+            position: absolute;
+            left: 20%;
+            top: 5%;
+            width: 40vw;
+            height: 13vw;
+            background-color: rgba(238, 252, 222, 1);
+            box-sizing: border-box;
+        }
+        .long-bar select {
+            position: absolute;
+            width: 40%;
+            height: 22%;
+            border-radius: 5px;
+            border: 1px solid rgb(16, 122, 16);
+            font-family: 'Source Han Sans', sans-serif;
+            background-color:white;
+            font-size: 1.2vw;
+        }
+        .long-bar option {
+            font-family: 'Source Han Sans', sans-serif;
+            font-size: 1.2vw;
+        }
+
+        div.delete-container{/*删除本班*/
+            position: absolute;
+            top: 6%;
+            left: 43%;
+            width: 1.4vw;
+            height: 1.6vw;
+        }
+
+
+        .remove-button {
+            position: absolute;
+            top: 3.75%;
+            left: 41%;
+            font-family: 'Source Han Sans CN', sans-serif;
+            font-size: 1.1vw;
+            color: rgba(128, 128, 128, 1);
+            background-color: rgba(238, 252, 222, 1);
+            border: 0.5vw solid rgba(238, 252, 222, 1);
+            border-radius: 1vw;
+            padding: 0.5vw 4vw;
+            cursor: pointer;
+        }
+        .remove-button:hover {
+            background-color: rgba(128, 128, 128, 1);
+            color: white;
+        }
+
+        div.detail {/*详细信息*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            left: 19.2%;
+            top: 16%;
+            width: 79vw;
+            height: 3vw;
+            opacity: 1;
+            border-radius: 1.5vw;
+            background: white;
+            font-size: 1vw;
+        }
+        .detail div {
+            flex: 1;
+            text-align: center;
+            font-family: 'AlibabaPuHuiTi-Regular', sans-serif;
+            color: rgba(155, 162, 171, 1);
+        }
+
+
+
+
+
+
+
+
+
+        div.export {/*选择导出*/
+            position: absolute;
+            top: -25%;
+            left: 2500%;
+            width: 7.8vw;
+            height: 2.6vw;
+            background-color: rgba(238, 252, 222, 1);
+            box-sizing: border-box;
+        }
+        .export select {
+            position: absolute;
+            width: 7.8vw;
+            height: 2.6vw;
+            border-radius: 5px;
+            border: 1px solid rgb(16, 122, 16);
+            font-family: 'Source Han Sans', sans-serif;
+            background-color:white;
+            font-size: 1.1vw;
+        }
+
+        .export option {
+            font-family: 'Source Han Sans', sans-serif;
+            font-size: 1.1vw;
+        }
+
+        .export2 {
+            position: absolute;
+            top: -60%;
+            left: 3200%;
+            width: 8vw;
+            height: 3.5vw;
+            background: linear-gradient(90deg, rgba(22, 217, 227, 1) 0%, rgba(48, 199, 236, 1) 47%, rgba(70, 174, 247, 1) 100%);
+            box-sizing: border-box;
+            color: rgba(255, 255, 255, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            border-width: 2px;
+            border-style: solid;
+            border-image: rgba(238, 252, 222, 1);
+            border-image-slice: 1;
+            border-image-source: linear-gradient(90deg, rgba(238, 252, 222, 1) 0%, rgba(238, 252, 222, 1) 100%);
+            cursor: pointer;
+        }
+        a.easyui-linkbutton{
+            color: white;
+            text-decoration: none;
+        }
+        .container-page {
+            position: fixed;
+            top: 24%;
+            left: 19.2%;
+            width: 80vw;
+            height: calc(85vh - 15%);
+            overflow: auto;
+            background: white;
+            border-radius: 8px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+            line-height: 2vw;
+        }
+        th, td {
+            text-align: center;
+            padding: 2vw;
+            border: 0.1vw solid white;
+            height: 4vh;
+        }
+        th {
+            background-color: #ddd;
+        }
+        table td {
+            font-family: 'Alibaba PuHuiTi', sans-serif;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="leftcontainer">
+        <h2>学生考勤</h2>
+        <div class="touxiang">
+            <img src="https://pic.imgdb.cn/item/6566da2fc458853aefc72ae1.jpg" />
+        </div>
+        <ul class="nav">
+            <li><a href="./homepage.html" >首页</a></li>
+            <li><a href="./attendance.html">点名</a></li>
+            <li><a href="./todayclass.html">今日课堂</a></li>
+            <li><a href="./attendancerecorde.html" class="attendancerecorde">考勤记录</a></li>
+        </ul>
+        <div class="setup"><div class="setup blank" ><a href="./login.html"><img src="https://pic.imgdb.cn/item/6566da36c458853aefc74573.png"></a></div></div>
+    </div>
+</div>
+
+<div class="long-bar">
+    <select id="class-select">
+        <option id="default-option"></option>
+    </select>
+</div>
+
+
+<script>
+    var no = sessionStorage.getItem("no");
+    //const no = '00000003';
+    var courseName = sessionStorage.getItem("title");
+    const initialClass = '1';
+    let classes = [initialClass]; // 班级列表
+
+    function init() {
+        const url = `http://47.120.48.211:8080/${no}/course/${courseName}/${initialClass}`;
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.send();
+
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);
+
+                var tableContent = "";
+                for (var i = 0; i < data.data.rows.length; i++) {
+                    tableContent += "<tr>";
+                    tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + (i+1) + "</td>";
+                    tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].id + "</td>";
+                    tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].name + "</td>";
+                    tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].major + "</td>";
+                    tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + (data.data.rows[i].totalClasses - data.data.rows[i].absentCount) + "/" + data.data.rows[i].totalClasses + "</td>";
+                    tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].absentRate + "</td>";
+                    tableContent += "</tr>";
+                }
+
+                document.getElementById("table-body").innerHTML = tableContent;
+            }
+        };
+    }
+
+    window.onload = init;
+
+    fetch(`http://47.120.48.211:8080/${no}/courseWhatt/${courseName}`, {
+        method: 'Get',
+      //  body: JSON.stringify({ no, courseName }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            classes = data.data; // 更新班级列表
+            console.log(data.data);
+            console.log("fuck_");
+            const container = document.querySelector('#class-select');
+            const defaultOption = document.querySelector('#default-option');
+            defaultOption.textContent = '班级' + classes[0];
+            defaultOption.value = classes[0];
+
+            container.innerHTML = '';
+
+            classes.forEach(cls => {
+                const option = document.createElement('option');
+                option.value = cls;
+                option.textContent = '班级' + cls;
+                container.appendChild(option);
+            });
+
+            container.value = defaultOption.value;
+
+            container.addEventListener('change', function() {
+                document.getElementById("table-body").innerHTML = "";
+
+                const selectedValue = this.value;
+                const url = `http://47.120.48.211:8080/${no}/course/${courseName}/${selectedValue}`;
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.send();
+
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var data = JSON.parse(this.responseText);
+
+                        var tableContent = "";
+                        for (var i = 0; i < data.data.rows.length; i++) {
+                            tableContent += "<tr>";
+                            tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + (i+1) + "</td>";
+                            tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].id + "</td>";
+                            tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].name + "</td>";
+                            tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].major + "</td>";
+                            tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + (data.data.rows[i].totalClasses - data.data.rows[i].absentCount) + "/" + data.data.rows[i].totalClasses + "</td>";
+                            tableContent += "<td style='width: 16.67%; text-align: center; padding: 10px; font-size: 1.1vw; '>" + data.data.rows[i].absentRate + "</td>";
+                            tableContent += "</tr>";
+                        }
+
+                        document.getElementById("table-body").innerHTML = tableContent;
+                    }
+                };
+            });
+
+            // 移除本班按钮点击事件处理函数
+            const removeButton = document.querySelector('.remove-button');
+            removeButton.addEventListener('click', function() {
+                const selectedValue = container.value;
+                classes = classes.filter(cls => cls !== selectedValue); // 从班级列表中删除该班级
+                container.innerHTML = '';
+
+                classes.forEach(cls => {
+                    const option = document.createElement('option');
+                    option.value = cls;
+                    option.textContent = '班级' + cls;
+                    container.appendChild(option);
+                });
+
+                container.value = classes[0];
+                const event = new Event('change');
+                container.dispatchEvent(event); // 触发班级列表的change事件
+                fetch(`http://47.120.48.211:8080/${no}/course/${courseName}/${selectedValue}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            });
+            container.value = classes[0];
+            const event = new Event('change');
+            container.dispatchEvent(event); // 触发班级列表的change事件
+        })
+        .catch(error => console.error(error));
+</script>
+
+
+
+
+
+
+
+<div class="long-long"></div>
+<div class="detail">
+    <div>序号</div>
+    <div>学号</div>
+    <div>姓名</div>
+    <div>专业</div>
+    <div>考勤次数</div>
+    <div>出勤率</div>
+</div>
+
+<button class="remove-button"><img src="https://pic.imgdb.cn/item/6566da2fc458853aefc72aa5.png" style="float:left;margin-right:10px;width:1.2vw;height:1.2vw;margin-top: 0.22vw;">移除本班</button>
+<div class="delete-container">
+    <div class="export">
+        <select onchange="if(this.value==='PDF'){
+                                    document.getElementById('export-container1').style.display='block';
+                                    document.getElementById('export-container2').style.display='none';
+                                }else if(this.value==='EXCEL'){
+                                    document.getElementById('export-container2').style.display='block';
+                                    document.getElementById('export-container1').style.display='none';
+                                }">
+            <option value="PDF" selected>PDF</option>
+            <option value="EXCEL" >Excel</option>
+        </select>
+    </div>
+    <button class="export2"></button>
+
+    <div id="export-container1" style="display:block; position: absolute; top: -38%; left: 3280%;">
+        <div style="margin-top:4px; margin-left: 18px; font-family: 'Source Han Sans', sans-serif; font-size: 1.7vw; display: inline-block; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+            <a href="#" class="easyui-linkbutton" onclick="downloadfile1();">导出</a>
+        </div>
+        <div>
+            <script>
+                function downloadfile1(){
+                    //
+                    const selectedValue = document.querySelector('#class-select').value;
+                    window.location.href=`http://47.120.48.211:8080/${no}/course/${courseName}/${selectedValue}/pdf`;
+                }
+            </script>
+        </div>
+    </div>
+
+    <div id="export-container2" style="display:none; position: absolute; top: -38%; left: 3280%;">
+        <div style="margin-top:4px; margin-left: 18px; font-family: 'Source Han Sans', sans-serif; font-size: 1.7vw; display: inline-block; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">
+            <a href="#" class="easyui-linkbutton" onclick="downloadfile2();">导出</a>
+        </div>
+        <div>
+            <script>
+                function downloadfile2(){
+                //
+                    const selectedValue = document.querySelector('#class-select').value;
+                    window.location.href=`http://47.120.48.211:8080/${no}/course/${courseName}/${selectedValue}/excel`;
+
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container-page">
+    <table>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+</div>
+
+
+
+</body>
+
+
+
+
+</html>

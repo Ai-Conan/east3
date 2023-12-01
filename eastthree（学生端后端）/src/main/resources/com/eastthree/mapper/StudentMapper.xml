@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eastthree.mapper.StudentMapper" >
+    <select id="getByUsernameAndPassword" resultType="com.eastthree.pojo.Student">
+        select id,no,password,name,gender,grade,clas_s,major,college from students
+            where no=#{no} and password=#{password}
+    </select>
+    <select id="getById" resultType="com.eastthree.pojo.Student">
+        select id,no,name,gender,grade,clas_s,major,college from students
+        where id=#{id}
+    </select>
+    <select id="getByGradeAndMajorAndClass" resultType="com.eastthree.pojo.Student">
+        select * from students
+        <where>
+            <if test="grade!=null">AND grade=#{grade}</if>
+            <if test="major!=null">AND major=#{major}</if>
+            <if test="Class!=null">AND clas_s=#{Class}</if>
+        </where>
+    </select>
+    <select id="getByCollege" resultType="com.eastthree.pojo.Student">
+        select * from students
+        where  college=#{college}
+    </select>
+    <select id="getByNo" resultType="com.eastthree.pojo.Student">
+        select * from students where no=#{studentNo}
+    </select>
+</mapper>

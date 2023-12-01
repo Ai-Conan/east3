@@ -1,0 +1,77 @@
+<!--pages/schedule/schedule.wxml-->
+<view class="nav-head">
+  
+  <view class="week-selector">
+    <view class="img-button pre-week-btn" bindtap="prevWeekHandler">
+      <image src="https://pic.imgdb.cn/item/65687973c458853aef77051b.png"></image>
+    </view>
+    <view class="cur-week">
+      <view class="week">{{curWeek}}</view>
+      <view class="title">{{curTitle}}</view>
+    </view>
+    <view class="img-button next-week-btn" bindtap="nextWeekHandler">
+      <image src="https://pic.imgdb.cn/item/656878dcc458853aef75208c.png"></image>
+    </view>
+    <view class="img-button add-course-btn" bindtap="addCourseHandler">
+      <image src="https://pic.imgdb.cn/item/65687897c458853aef743e98.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="tab-top">
+  <view class="cur-month">{{curMonth}}月</view>
+  <view class="week-list">
+    <view wx:for="{{weekDates}}" wx:key="*this" class="day-text {{todayIndex == index ? 'active' : ''}}">
+      <text>{{weekLabels[index]}}</text>
+      <text>{{item}}</text>
+    </view>
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class="tab-scroll">
+  <view class="tab-container">
+    <!--分节-->
+    <!-- <view class="tab-divide">
+      <view wx:for="{{['上午', '下午', '晚上']}}" wx:key="*this" class="tab-divide-item">
+        <text>{{item}}</text>
+      </view>
+    </view> -->
+    <view class="tab-section">
+      <view wx:for="{{[1,2,3]}}" wx:key="*this" wx:for-index="index1"  class="tab-section-divide">
+        <view wx:for="{{[1,2,3,4]}}" wx:for-item="item2" wx:key="*this" class="tab-section-item">
+          <text>{{item2 + index1 * 4}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 线条 -->
+    <view wx:for="{{[4,8,12]}}" wx:key="*this">
+      <view style="top:{{item*50}}px;" class="tab-line"></view>
+    </view>
+
+    <!--课程-->
+    <view wx:for="{{tasklist}}" wx:key="id">
+      <view class="course-item" bindtap="showCardView" data-index="{{index}}" data-type="{{item.type}}" style="margin-left:{{item.day*90+1}}rpx;margin-top:{{(item.start-1)*50+1}}px;height:{{item.sections*50-4}}px;">
+        <!-- <view class="course-item-inner" style="height:{{item.sections*50-5}}px;background-color:{{courseColors[item.type]}}"> -->
+          <view class="course-item-inner" style="height:{{item.sections*50-5}}px;background-color:{{item.color}}">
+          <text>{{item.course}}</text>
+          <!-- <text wx:if="{{item.type != 0}}">{{item.teacher}}</text>
+          <text wx:if="{{item.type != 0}}">{{item.place}}</text> -->
+          <text>{{item.teacher}}</text>
+          <text>{{item.place}}</text>
+          <!-- <view class="sign-status" style="background-color:{{course.type == 0 ? '#dc3545' : course.type == 1 ? '#28a745' : '#ffc107'}};color:{{course.textColor}}">
+            {{course.type == 0 ? '缺' : course.type == 1 ? '已' : '未'}}
+          </view> -->
+          <view class="sign-status" style="background-color:#FFFFFF;color:{{item.textColor}}">
+            <block wx:if="{{item.type == 0}}">缺</block>
+            <block wx:elif="{{item.type == 1}}">已</block>
+            <block wx:elif="{{item.type == 3}}">请</block>
+            <block wx:else>未</block>
+
+          </view>
+          <!-- color是字体颜色 -->
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

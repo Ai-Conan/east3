@@ -1,0 +1,240 @@
+/* pages/schedule/schedule.wxss */
+.nav-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 57px;
+  /* border-bottom: 1rpx solid #cacbcc; */
+  background-color: #fff;
+}
+
+.week-selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000rpx;
+}
+
+.cur-week {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.cur-week .week {
+  font-size: 32rpx;
+  color: #18191A;
+}
+
+.cur-week .title {
+  font-size: 28rpx;
+  color: #7A7D80;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pre-week-btn {
+  transform: scale(0.06);
+  width: 30rpx;
+  height: 52rpx;
+  margin-left:200rpx ;
+  margin-top:-30rpx;
+}
+
+.next-week-btn {
+  transform: scale(0.06);
+  width: 1rpx;
+  height: 52rpx;
+  margin-left:-40rpx ;
+  margin-top:-30rpx;
+}
+.add-course-btn {
+  transform: scale(0.1);
+  width: 100rpx;
+  height: 80rpx;
+  right:100rpx ;
+  margin-left:110rpx ;
+  margin-right:30rpx ;
+  margin-top:-50rpx;
+}
+.tab-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  background-color: #FFFFFF;
+}
+
+.cur-month {
+  width: 100rpx;
+  height: 52rpx;
+  background-color: #A7D3E8;
+  text-align: center;
+  line-height: 52rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+}
+
+.week-list {
+ display: flex;
+ flex-direction: row;
+ max-width: 100%;
+ height: 100%;
+}
+
+.day-text {
+  width: 90rpx;
+  height: 100%;
+  font-size: 28rpx;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-text.active {
+  background-color: #A7D3E8;
+}
+
+.day-text.active text {
+  color: #fff !important;
+}
+
+.day-text text:first-child {
+  color: #18191A;
+}
+
+.day-text text:last-child {
+  color: #7A7D80
+}
+
+.tab-scroll {
+  height: calc(100% - 57px - 50px);
+  z-index: 10;
+  position: fixed;
+  border-top: 1rpx solid #cacbcc;
+  background-color: #fff;
+}
+
+.tab-container {
+  height:600px;
+  width:750rpx;
+  display:flex;
+  background:  -webkit-linear-gradient(top,#E4F3FA,#E6F3F9,#EBF4F9,#ECF4F7,#F0F3F8,#F4F5F7);
+}
+
+.tab-divide {
+  background-color:#f6f6f6;
+  color:#7A7D80;
+}
+
+.tab-divide-item {
+  width: 53rpx;
+  height: 200px;
+  font-size: 24rpx;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #cacbcc;
+  border-right: 1rpx solid #cacbcc;
+  box-sizing: border-box;
+}
+
+.tab-divide-item text {
+  width: 24rpx;
+  line-height: 1.5;
+}
+
+.tab-section {
+  width: 100rpx;
+  background:  -webkit-linear-gradient(top,#E4F3FA,#E6F3F9,#EBF4F9,#ECF4F7,#F0F3F8,#F4F5F7);
+  color:#18191A;
+}
+
+.tab-section-divide {
+  width: 100rpx;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #cacbcc;
+  box-sizing: border-box;
+}
+
+.tab-section-item {
+  width: 53rpx;
+  height: 50px;
+  font-size: 24rpx;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.tab-line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color:#cacbcc;
+  margin-top: -1px;
+}
+
+.course-item {
+  position: absolute;
+  width: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-item-inner {
+  position: relative;
+  width: 88rpx;
+  border-radius: 13rpx;
+  /* border: 1rpx solid #6D7172; */
+  padding-top:10rpx ;
+  font-size: 20rpx;
+  color: #6D7172;
+  border:1rpx solid #7E8D91;
+  border-radius:20rpx;
+  /* #fff; */
+  padding: 13rpx;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  flex-wrap:nowrap;
+  align-items: center;
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+}
+
+.course-item-inner text:not(:last-child) {
+  margin-bottom: 6rpx;
+}
+.sign-status {
+  position: absolute;
+  right: -1rpx;
+  top: -10rpx;
+  width: 40%; /* 圆的直径为课程所在方框水平宽度的1/3 */
+  height: 20%; /* 圆的直径为课程所在方框水平宽度的1/3 */
+  border-radius: 50%; /* 使其成为圆形 */
+  border: 1rpx solid #ACB0B0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  /* color: #5C5C5D; */
+/* white; 签到状态文字的颜色 */
+}
+
+
+
+
+
+
+
+

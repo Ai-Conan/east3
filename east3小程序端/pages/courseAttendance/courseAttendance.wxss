@@ -1,0 +1,142 @@
+.container {
+  background-color: #E5F5FB;
+  /* #D3E5F6; */
+  height: 100vh;
+  padding:70rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attendance-content {
+  background-color: #FFFFFF;
+  height:80vh; /* 设置固定的高度，根据您的需求进行调整 */
+  overflow-y: auto; /* 添加滚动条以支持内容超出容器高度时的滚动 */
+  padding: 40rpx;
+  
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  border-radius: 30px;
+  border: 1px solid #A9AEB0; /* 添加边框样式，可以根据需要调整边框的颜色和粗细 */
+}
+.takepic {
+position: absolute;
+bottom:2%;
+right:3%;
+border-radius: 50%;
+width:60px;
+height:60px;
+background-color: #FFFFFF;
+box-shadow: 0px 2px 4px rgba(0,0,0,0.25);
+}
+.takepic-icon{
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top:7.5px;
+  left:8px;
+}
+
+.search-bar {
+  transform: scale(0.8);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #A9AEB0;
+  border-radius: 20px;
+  padding: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.help-icon {
+  width: 10%;
+  /* width: 16px; */
+  height: 20px;
+  padding-left: 5px;
+  margin-right: 5px;
+  margin-top: 11rpx;
+}
+
+.search-input {
+  flex: 4;
+  width: 60%;
+  height: 20px;
+  background-color: #FFFFFF;
+  align-items: center;
+  margin-top: 13rpx;
+  font-size: 14px;
+}
+.search-button {
+  /* width: 10%;
+  height: 20px;
+  border: none;
+  border-radius: 4px; */
+  flex: 1;
+  
+  margin-left: 20px;/* 控制搜索按钮与搜索框之间的间距。 */
+  /* background-color: #58AFDA; */
+  color: #A9AEB0;
+  border: none;
+  border-radius: 5px;
+}
+
+.attendance-scroll {
+  flex: 1;
+}
+
+.attendance-list {
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #A9AEB0;
+}
+
+.student-no {
+  flex: 1;
+  text-align: left;
+  color: #060606;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.student-name {
+  flex: 1;
+  text-align: center;
+  color: #060606;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.status {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.absent {
+  color: #FF8692;
+}
+
+.present {
+  color: #B1EBD3;
+}
+
+.leave {
+  color: #060606;
+}
+
+

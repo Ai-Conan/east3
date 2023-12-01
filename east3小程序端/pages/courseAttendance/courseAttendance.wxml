@@ -1,0 +1,24 @@
+<view class="container">
+  <view bindtap="takepicbtn" class="takepic">
+    <image class="takepic-icon" src="https://pic.imgdb.cn/item/65689c71c458853aef1aadcf.png"></image>
+    </view>
+  <view class="attendance-content">
+    <view class="search-bar">
+      <image class="help-icon" src="https://pic.imgdb.cn/item/65689cd1c458853aef1c8866.png"></image>
+      <input class="search-input" placeholder="请输入学生学号" bindinput="onInput" />
+      <button class="search-button" bindtap="onSearch">搜索</button>
+    </view>
+    <scroll-view scroll-y="true" class="attendance-scroll">
+      <view class="attendance-list">
+        <block wx:for="{{attendanceList}}" wx:key="index">
+          <view class="item">
+            <text class="student-no">{{item.studentNo}}</text>
+            <text class="student-name">{{item.studentName}}</text>
+            <text class="status {{item.statusClass}}">{{item.status}}</text>
+   
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+</view>

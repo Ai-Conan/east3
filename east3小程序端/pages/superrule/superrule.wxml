@@ -1,0 +1,21 @@
+<!--pages/superrule/superrule.wxml-->
+<view class="container">
+  <view class="header">督导规则</view>
+  <view class="content">
+    <view class="section">
+      <view class="title">一、点名</view>
+      <view class="text">1、在需点名的教室内，发布点名任务。</view>
+      <view class="text">2、当觉着时间不够时，可以进行手动点名，右滑则为该同学到场，左滑则为该同学缺勒。</view>
+      <view class="text">3、若有同学需手动点名，问清楚原因后，可在点名界面内，进行搜索学号，再右滑进行签到成功。</view>
+      <view class="text">4、当有人签到过程中，说同学请假，可去观看请假申请是否有未审核的请假申请，若无，则请同学进行请假申请，否则按缺勤处理。</view>
+      <view class="text">5、每两周至少有四次点名，时间自定</view>
+    </view>
+    <view class="section">
+      <view class="title">二、审核</view>
+      <view class="text">1、请及时处理同学们的请假与申诉申请。</view>
+      <view class="text">2、请仔细审核请假以及申诉理由的正当性，若缺少关键申请材料，应予以驳回。</view>
+    </view>
+  </view>
+</view>
+
+

@@ -1,0 +1,68 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 使内容垂直居中 */
+  background:  -webkit-linear-gradient(top,#E2F3FA,#E6F3F9,#ECF3F9,white);
+  padding: 20px;
+  height: 100vh;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%;
+}
+
+.input-group {
+  width: 90%; /* 将宽度改为90%以提供边距 */
+  margin-bottom: 10px;
+  padding: 10px; /* 添加内部边距 */
+  background-color: transparent; /* 设置背景颜色为透明 */
+  border-radius: 10px; /* 为框添加圆角 */
+}
+
+.input-line { /* 新增一个类来包含每行的text和input */
+  display: flex;
+  align-items: center;/* 使 text 和 input 在同一水平线上 */
+  justify-content: space-between; /* 使内容在行内均匀分布 */
+  flex-basis:100%;
+  /* width: 100%; 将每一行的宽度设为100% */
+  border-bottom: 1px solid #000; /* 在每一行的底部添加横线 */
+  padding: 10px 0; /* 添加上下边距 */
+}
+
+.input-group text {
+  width: 40%;
+  text-align: right; /* 设置文字向右对齐，即在框内居右 */
+}
+
+.input-group input {
+  width: 50%; /* 将宽度调整为50%以适应新的框尺寸 */
+}
+
+button {
+  width: 90%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #A0DDFC; /* 设置按钮背景为蓝色 */
+  color: #FFFFFF; /* 设置按钮文字为白色 */
+  border-radius: 50rpx; /* 为按钮添加圆角 */
+  font-size: 16px;
+  font-weight: bold;
+  border: none; /* 移除边框 */
+}
+.date-format-alert {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  width: 120%; /* 宽度等于屏幕宽度 */
+  padding: 10px; /* 内部填充 */
+  background-color: #FFFFFF; /* 背景颜色为白色 */
+  color: #000000; /* 文字颜色为黑色 */
+  font-size: 16px; /* 设置字体大小 */
+  border-radius: 0; /* 为方框添加圆角 */
+  border-top: 1rpx solid;
+  margin-top: 17%; /* 方框与上面的内容之间的间距 */
+}

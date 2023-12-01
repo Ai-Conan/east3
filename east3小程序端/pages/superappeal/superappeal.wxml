@@ -1,0 +1,25 @@
+<!--pages/superleave/superappeal/superappeal.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true" class="list">
+    <view class="item" wx:for="{{appealList}}" wx:key="index" bindtap="gotoDetail" data-id="{{item.id}}">
+      <view class="left">
+        <view class="row">
+          <text class="title">理由　　　</text>
+          <text class="content">{{item.reason}}</text>
+        </view>
+        <view class="row">
+          <text class="title">开始时间　</text>
+          <text class="content">{{item.appealBeginTime}}</text>
+        </view>
+        <view class="row">
+          <text class="title">结束时间　</text>
+          <text class="content">{{item.appealEndTime}}</text>
+        </view>
+      </view>
+      <view class="right {{item.statusClass}}">
+        {{item.status}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

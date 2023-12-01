@@ -1,0 +1,26 @@
+<view class="main-container">   
+  <view class="container">
+    <form bindsubmit="submitAppeal">
+      <div class="input-line">
+        <text>原因　</text>
+        <input placeholder="　请输入原因　" bindinput="updateReason" />
+      </div>
+      <div class="input-line">
+        <text>地点　</text>
+        <input placeholder="　请输入地点　" bindinput="updateLeavePlace" />
+      </div>
+      <div class="input-line">
+        <text> 开始时间　</text>
+        <input placeholder="　请输入开始时间　\n输入格式请按照xxxx-xx-xxTxx:xx:xx" bindinput="updateAppealBeginTime" />
+      </div>
+      <div class="input-line">
+        <text> 结束时间　</text>
+        <input placeholder="　请输入结束时间　" bindinput="updateAppealEndTime" />
+      </div>
+      <button formType="submit">提交</button>
+    </form>
+  </view>
+  <view class="date-format-alert">
+      日期严格按照xxxx-xx-xxTxx:xx:xx格式输入
+  </view>
+</view>  

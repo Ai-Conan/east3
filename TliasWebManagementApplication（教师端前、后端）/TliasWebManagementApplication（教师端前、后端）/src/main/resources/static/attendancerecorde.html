@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考勤记录</title>
+    <link rel = "stylesheet" type = "text/css" href = "attendancerecord.css"></link>
+</head>
+<body onload="init()">
+<script type="text/javascript" src="attendeance.js"></script>
+<div class="container">
+    <div class="leftcontainer">
+        <h2>学生考勤</h2>
+        <div class="touxiang">
+            <img src="https://pic.imgdb.cn/item/6566da2fc458853aefc72ae1.jpg" />
+        </div>
+        <ul class="nav">
+            <li><a href="./homepage.html" >首页</a></li>
+            <li><a href="./attendance.html">点名</a></li>
+            <li><a href="./todayclass.html">今日课堂</a></li>
+            <li>
+                <a href="#" class="attendancerecorde">考勤记录</a>
+                <img class="navimg" src="https://pic.imgdb.cn/item/6566e394c458853aefe74ae8.png" />
+            </li>
+        </ul>
+        <div class="setup"><div class="setup blank" ><a href="./login.html"><img src="https://pic.imgdb.cn/item/6566da36c458853aefc74573.png"></a></div></div>
+    </div>
+    <div class="rightcontainer">
+        <div class="pagetitle">
+            <h1 class="iteachcourse">我教的课程</h1>
+        </div>
+        <div class="blankspace"></div>
+        <div class="search">
+            <form action="" method="get">
+                <input id="searchInput" type="text" placeholder="搜索课程" class="searchtext">
+                <img class="searchimg" src="https://pic.imgdb.cn/item/6566e394c458853aefe74a43.png" />
+            </form>
+        </div>
+        <div class="custom-alert" id="customAlert">
+            <p id="alertMessage"></p>
+            <span class="close-btn" onclick="closeAlert()">&times;</span>
+        </div>
+        <script>
+            document.querySelector('.search').addEventListener('submit', function (event) {
+                event.preventDefault(); // 阻止表单默认提交行为
+                search();
+            });
+        </script>
+        <div class="midall"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -271,7 +271,7 @@ getTime() {
     const that = this;
     // 实例化腾讯地图API核心类
     const QQMapWX = new qqMapSdk({
-      key: 'BPKBZ-IZZCG-UTKQ2-QEEWQ-EZP2Q-ACBWU'
+      // key: 请输入您自己的key
     });
     // 获取当前位置
     wx.getLocation({

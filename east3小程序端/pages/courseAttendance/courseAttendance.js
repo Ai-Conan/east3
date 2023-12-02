@@ -102,8 +102,8 @@ Page({
             const fileData = fs.readFileSync(tempFilePath, 'base64');
 
             // 4. 构造请求参数
-            const AK = "tCINei9dcijhGVtSsNWFSaUH";
-            const SK = "8cWqQRalxAelOfaKGLRHEOqB45W4gnGz";
+            // const AK = 请替换成您自己的AK;
+            // const SK = 请替换成您自己的SK;
             const Url = `https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=${AK}&client_secret=${SK}`;
             wx.request({
               url: Url,
